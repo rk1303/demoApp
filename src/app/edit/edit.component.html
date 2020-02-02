@@ -1,0 +1,46 @@
+<div class="add-main">
+    <h2 class="text-center">Edit Student</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+        
+        <input type="hidden" formControlName="_id" name="_id">
+
+        <div class="alert alert-danger" *ngIf="addForm.get('first_name').hasError('required') && addForm.get('first_name').touched ">
+            Please Enter First Name.
+        </div>
+
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" formControlName="first_name" placeholder="Students First Name" name="first_name" class="form-control">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('last_name').hasError('required') && addForm.get('last_name').touched ">
+            Please Enter Last Name.
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" formControlName="last_name" placeholder="Students Last Name" name="last_name" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('last_name').hasError('maxlength') && addForm.get('last_name').touched ">
+            Maximum 12 characters allowed.
+        </div>
+
+        <div class="alert alert-danger" *ngIf="addForm.get('email').hasError('required') && addForm.get('email').touched ">
+            Please Enter email.
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" formControlName="email" placeholder="Students email" name="email" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('email').hasError('maxlength') && addForm.get('email').touched ">
+            Maximum 30 characters allowed.
+        </div>
+
+        <button class="btn-btn-success" (click)="update()">Edit  Student</button>
+
+    </form>
+    
+        <a routerLink="/view" class="btn btn-primary">view Student</a> 
+     
+
+</div>
